@@ -1,0 +1,196 @@
+% ==============================================================================
+% SECAO 2 — MODELAGEM FISICA
+% ==============================================================================
+\section{COMPREENSÃO DO PROBLEMA E MODELAGEM FÍSICA}\label{sec:modelagem_fisica}
+
+A Figura~\ref{fig:esquema_fisico} ilustra o percurso dos eventos desde os dispositivos geradores até a saída processada, destacando a interação entre a fila temporária e a malha de realimentação responsável pelo ajuste dinâmico de capacidade.
+
+\begin{figure}[H]
+\centering
+\caption{Representação esquemática física do sistema de processamento de eventos em \textit{streaming}: chegada $\lambda(t)$, ingestão, fila $q(t)$, drenagem pelos operadores à capacidade efetiva $\mu(t)$ e malha de controle/alocação de recursos}
+\label{fig:esquema_fisico}
+\resizebox{0.90\textwidth}{!}{%
+\begin{tikzpicture}[
+    >=Stealth,
+    pbox/.style={draw=navy, fill=blue!4, thick, rounded corners=3pt, minimum height=1.15cm, align=center, font=\small},
+    iotbox/.style={draw=tealaccent, fill=tealaccent!7, thick, rounded corners=3pt, minimum height=1.15cm, align=center, font=\small},
+    cbox/.style={draw=navy, fill=navy!6, thick, rounded corners=3pt, minimum height=1.1cm, align=center, font=\small},
+    rbox/.style={draw=red!65!black, fill=red!4, thick, rounded corners=3pt, minimum height=1.1cm, align=center, font=\small},
+    pill/.style={draw=tealaccent!80, fill=white, thick, rounded corners=6pt, inner sep=4pt, font=\footnotesize, align=center}
+]
+    % --- CAMADA SUPERIOR: FLUXO DE EVENTOS ---
+    \node[iotbox, minimum width=2.45cm] (iot) at (-0.55, 0.0) {\textbf{Dispositivos IoT}\\{\scriptsize Geração contínua}};
+    \node[pbox, minimum width=2.25cm] (ing) at (4.35, 0.0) {\textbf{Serviço de}\\ \textbf{Ingestão}\\{\scriptsize Sem perdas}};
+
+    % Fila Temporaria (Buffer) desenhada com celulas visuais (x de 6.50 a 10.00 -> 7 celulas de 0.50 cm)
+    \fill[navy!22] (6.50, -0.45) rectangle (8.00, 0.45);
+    \fill[orange!35] (8.00, -0.45) rectangle (9.00, 0.45);
+    \fill[tealaccent!10] (9.00, -0.45) rectangle (9.50, 0.45);
+    \fill[white] (9.50, -0.45) rectangle (10.00, 0.45);
+    \foreach \k in {1,...,6} {
+        \draw[navy!50, thin] ({6.50 + 0.50*\k}, -0.45) -- ({6.50 + 0.50*\k}, 0.45);
+    }
+    \draw[navy, very thick, rounded corners=1pt] (6.50, -0.45) rectangle (10.00, 0.45);
+
+    % Anotacoes da Fila (Buffer)
+    \node[font=\small\bfseries, navy] at (8.25, 1.25) {Fila Temporária (Buffer): $q(t) \ge 0$};
+    \draw[dashed, tealaccent] (8.00, -0.56) -- (8.00, 0.56);
+    \node[font=\scriptsize, tealaccent!90!black, anchor=east] at (7.95, -0.76) {$q_{\text{des}} = 300$};
+    \draw[dashed, red!70!black] (9.50, -0.56) -- (9.50, 0.56);
+    \node[font=\scriptsize, red!70!black, anchor=west] at (9.55, -0.76) {$q(0) = 600$};
+    \draw[<->, thin, navy] (6.50, 0.65) -- (9.00, 0.65) node[midway, above, font=\scriptsize] {$q(t)$};
+    \draw[<->, thin, tealaccent!90!black] (9.00, 0.65) -- (9.50, 0.65) node[midway, above, font=\scriptsize] {$x(t)$};
+
+    % Operadores e saida
+    \node[pbox, minimum width=2.85cm] (ops) at (13.85, 0.0) {\textbf{Operadores de}\\ \textbf{Processamento}\\{\scriptsize Drenagem efetiva $\mu(t)$}};
+    \coordinate (out) at (16.85, 0.0);
+
+    % Setas da camada superior
+    \draw[->, thick, navy] (iot.east) -- (ing.west)
+        node[midway, above, font=\small] {$\lambda(t)$}
+        node[midway, below, font=\scriptsize, align=center] {$\lambda_0=1000\text{ ev/s}$\\{\color{red!70!black}$+100$ em $t=20\text{ s}$}};
+    \draw[->, thick, navy] (ing.east) -- (6.50, 0.0);
+    \draw[->, thick, navy] (10.00, 0.0) -- (ops.west)
+        node[midway, above, font=\small] {$\mu(t)$}
+        node[midway, below, font=\scriptsize] {$[600,\,1400]\text{ ev/s}$};
+    \draw[->, thick, navy] (ops.east) -- (out)
+        node[midway, above, font=\scriptsize] {Eventos}
+        node[midway, below, font=\scriptsize] {processados};
+
+    % --- CAMADA INFERIOR: REALIMENTACAO, CONTROLADOR E ALOCACAO ---
+    \node[cbox, minimum width=2.85cm] (ctrl) at (4.35, -2.95) {\textbf{Controlador}\\{\scriptsize P, PI, PD ou PID}\\{\scriptsize Saturação $\mu_c \in [600,\,1400]$}};
+    \node[rbox, minimum width=3.15cm] (alloc) at (13.85, -2.95) {\textbf{Alocação de Recursos}\\{\scriptsize Dinâmica 1ª ordem ($\tau = 2\text{ s}$)}\\{\scriptsize $G_{\text{rec}}(s) = \frac{1}{2s+1}$}};
+
+    % Referencia no controlador
+    \coordinate (refin) at (0.35, -2.95);
+    \draw[->, thick, navy] (refin) -- (ctrl.west)
+        node[midway, above, font=\small] {$x_r = 300\text{ ev}$}
+        node[midway, below, font=\scriptsize] {($q_{\text{des}} = 300\text{ ev}$)};
+
+    % Realimentacao do buffer para o controlador
+    \node[pill] (sens) at (8.25, -1.65) {Medição: $q(t) \to x(t) = 600 - q(t)$};
+    \draw[->, thick, tealaccent] (8.25, -0.45) -- (sens.north);
+    \draw[->, thick, tealaccent] (sens.west) -| (ctrl.north);
+
+    % Comando de capacidade e atuacao nos operadores
+    \draw[->, thick, red!70!black] (ctrl.east) -- (alloc.west)
+        node[midway, above, font=\small] {$\mu_c(t) = 1000 + u(t)$}
+        node[midway, below, font=\scriptsize] {Capacidade solicitada};
+    \draw[->, very thick, red!70!black] (alloc.north) -- (ops.south)
+        node[midway, right, font=\small, align=left] {$\mu(t)$\\{\scriptsize (ajuste gradual)}};
+\end{tikzpicture}%
+}
+\fontefig{Fonte: Elaborada pelos autores (2026).}
+\end{figure}
+
+\subsection{Arquitetura Funcional e Diagrama de Blocos}\label{sec:arquitetura}
+Com as grandezas definidas na Seção~\ref{sec:intro_objetivos}, a linearização em torno do ponto de operação nominal ($\lambda_0 = \mu_0 = 1000\text{ eventos/s}$, $q(0) = 600\text{ eventos}$) (OGATA, 2010) conduz às variáveis incrementais:
+\begin{equation}
+    x(t) = 600 - q(t), \quad u(t) = \mu_c(t) - 1000, \quad \Delta\mu(t) = \mu(t) - 1000, \quad \Delta\lambda(t) = \lambda(t) - 1000,
+\end{equation}
+de modo que a condição inicial é nula ($x(0) = 0$) e o valor de referência torna-se $x_r = 300$~eventos. A restrição física de não negatividade da fila ($q(t) \ge 0$) equivale a $x(t) \le 600$~eventos, enquanto os limites de capacidade computacional $\mu_c,\mu \in [600,\,1400]$~eventos/s correspondem à saturação incremental $u_{\text{sat}}(t) \in [-400,\,+400]$~eventos/s. Os parâmetros nominais do sistema e do ambiente computacional estão sintetizados na Tabela~\ref{tab:parametros}.
+
+\begin{table}[H]
+\centering
+\caption{Parâmetros nominais e especificações do sistema de processamento em \textit{streaming}}
+\label{tab:parametros}
+{\small\singlespacing
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+\textbf{Parâmetro do Sistema} & \textbf{Valor Nominal / Especificação} \\
+\midrule
+Taxa nominal de chegada ($\lambda_0$) e capacidade ($\mu_0$) & $1000\text{ eventos/s}$ \\
+Fila inicial $q(0)$ e referência desejada $q_r$ & $600\text{ eventos} \rightarrow 300\text{ eventos}$ ($x_r = 300$) \\
+Constante de tempo da infraestrutura ($\tau$) & $2{,}0\text{ s}$ \\
+Limites físicos de capacidade ($\mu_{\min},\, \mu_{\max}$) & $[600,\, 1400]\text{ eventos/s}$ ($u \in [-400,\,+400]$) \\
+Perturbação permanente de chegada ($\Delta\lambda$) & $+100\text{ eventos/s}$ aplicada em $t = 20\text{ s}$ \\
+Ambiente de simulação & Python (\texttt{numpy}, \texttt{scipy}, \texttt{control}, \texttt{matplotlib}) \\
+\bottomrule
+\end{tabular}%
+}}
+\fontefig{Fonte: Elaborada pelos autores (2026).}
+\end{table}
+
+A Figura~\ref{fig:diagrama_blocos} apresenta o diagrama de blocos completo da malha de controle, evidenciando a referência, o controlador, a saturação de recursos, o bloco de ajuste dinâmico de capacidade, a perturbação de chegada, o integrador da fila e a realimentação unitária negativa (DORF; BISHOP, 2018).
+
+\begin{figure}[H]
+\centering
+\caption{Diagrama de blocos do sistema de controle de fila em \textit{streaming} (variáveis incrementais em torno de $\lambda_0=\mu_0=1000\text{ eventos/s}$, $q(0)=600\text{ eventos}$)}
+\label{fig:diagrama_blocos}
+\resizebox{0.90\textwidth}{!}{%
+\begin{tikzpicture}[
+    auto,
+    >=Stealth,
+    block/.style={draw=navy, fill=blue!4, thick, rectangle, minimum height=1.0cm, minimum width=1.9cm, align=center, font=\small},
+    satblock/.style={draw=red!65!black, fill=red!4, thick, rectangle, minimum height=1.0cm, minimum width=1.7cm, align=center, font=\small},
+    sum/.style={draw=navy, fill=white, thick, circle, minimum size=0.6cm, inner sep=0pt, font=\small},
+    input/.style={coordinate},
+    output/.style={coordinate}
+]
+    % Nos principais
+    \node[input] (ref) {};
+    \node[sum, right=2.05cm of ref] (sum1) {};
+    \node[block, right=1.0cm of sum1] (ctrl) {Controlador\\$C(s)$};
+    \node[satblock, right=0.95cm of ctrl] (sat) {Saturação\\$[-400,+400]$};
+    \node[block, right=1.05cm of sat] (act) {Ajuste de\\Recursos\\$\dfrac{1}{2s+1}$};
+    \node[sum, right=1.25cm of act] (sum2) {};
+    \node[block, right=1.1cm of sum2] (queue) {Fila\\(Conservação)\\$\dfrac{1}{s}$};
+    \node[output, right=1.25cm of queue] (out) {};
+
+    % Perturbacao
+    \node[input, above=1.15cm of sum2] (dist) {};
+
+    % Sinais de entrada e erro
+    \draw[->, thick] (ref) -- node[pos=0.33, above, font=\small] {$X_r(s) = \frac{300}{s}$} (sum1);
+    \draw[->, thick] (sum1) -- node[above, font=\small] {$E(s)$} (ctrl);
+    \draw[->, thick] (ctrl) -- node[above, font=\small] {$U(s)$} (sat);
+    \draw[->, thick] (sat) -- node[above, font=\small] {$U_{\text{sat}}(s)$} (act);
+    \draw[->, thick] (act) -- node[pos=0.45, above, font=\small] {$\Delta\mu(s)$} (sum2);
+    \draw[->, thick] (dist) -- node[pos=0.35, right, font=\small, align=left] {Chegada (pert.)\\$\Delta\Lambda(s)$} (sum2);
+    \draw[->, thick] (sum2) -- node[pos=0.50, above, font=\small] {$\dot{X}(s)$} (queue);
+    \draw[->, thick] (queue) -- node[above, font=\small] {$X(s)$} (out);
+
+    % Sinais nos somadores
+    \node[font=\scriptsize] at ($(sum1.west)+(-0.18,0.18)$) {$+$};
+    \node[font=\scriptsize] at ($(sum1.south)+(0.18,-0.18)$) {$-$};
+    \node[font=\scriptsize] at ($(sum2.west)+(-0.18,0.18)$) {$+$};
+    \node[font=\scriptsize] at ($(sum2.north)+(0.20,0.18)$) {$-$};
+
+    % Anotacao da planta linear equivalente
+    \node[draw=tealaccent!70, dashed, rounded corners, inner sep=7pt, fit=(act) (queue), label={[tealaccent, font=\footnotesize\bfseries]below:Planta Linear $G(s) = \frac{1}{s(2s+1)}$ ($\Delta\Lambda = 0$, sem saturação)}] {};
+
+    % Malha de realimentacao bem abaixo do rotulo da planta linear
+    \coordinate (fb1) at ($(queue.east)+(0.60,0)$);
+    \coordinate (fb2) at ($(fb1)+(0,-1.85)$);
+    \draw[->, thick] (fb1) |- (fb2) -| node[pos=0.25, below, font=\small] {Realimentação unitária ($q(t) = 600 - x(t)$)} (sum1);
+\end{tikzpicture}%
+}
+\fontefig{Fonte: Elaborada pelos autores (2026).}
+\end{figure}
+
+\subsection{Princípio de Conservação de Fluxo na Fila}\label{sec:conservacao}
+Na ausência de perdas de pacotes e admitindo capacidade de armazenamento suficiente na fila, o princípio de conservação de fluxo estabelece que a variação temporal da quantidade de eventos pendentes $q(t)$ é dada pela diferença entre a taxa instantânea de chegada $\lambda(t)$ e a taxa efetiva de processamento $\mu(t)$ (OGATA, 2010):
+\begin{equation}
+    \frac{dq(t)}{dt} = \lambda(t) - \mu(t), \qquad q(0) = 600\text{ eventos}.
+    \label{eq:balanco_q}
+\end{equation}
+Na operação não linear com restrição física $q(t) \ge 0$, quando $q(t)=0$ e $\mu(t)>\lambda(t)$, a fila não pode assumir valores negativos; assim, na fronteira $q = 0$ vale $\dot{q}(t) = \max(0,\, \lambda(t)-\mu(t))$. Para a análise linear, assume-se $q(t) > 0$.
+
+Substituindo $q(t) = 600 - x(t)$, $\lambda(t) = 1000 + \Delta\lambda(t)$ e $\mu(t) = 1000 + \Delta\mu(t)$ na Equação~\eqref{eq:balanco_q}, tem-se:
+\begin{equation}
+    \frac{d(600 - x(t))}{dt} = (1000 + \Delta\lambda(t)) - (1000 + \Delta\mu(t)) \implies \frac{dx(t)}{dt} = \Delta\mu(t) - \Delta\lambda(t), \quad x(0) = 0.
+    \label{eq:balanco_x}
+\end{equation}
+
+\subsection{Dinâmica da Capacidade Efetiva de Processamento}\label{sec:dinamica_cap}
+O mecanismo de alocação de recursos computacionais apresenta inércia associada ao provisionamento e aquecimento de operadores, respondendo à capacidade solicitada $\mu_c(t)$ segundo uma dinâmica de primeira ordem com constante de tempo $\tau = 2\text{ s}$ e ganho unitário em regime:
+\begin{equation}
+    2\,\frac{d\mu(t)}{dt} + \mu(t) = \mu_c(t), \qquad \mu(0) = 1000\text{ eventos/s}.
+    \label{eq:atuador_fisico}
+\end{equation}
+Em termos das variáveis incrementais $\Delta\mu(t) = \mu(t) - 1000$ e $u(t) = \mu_c(t) - 1000$ (ou, com saturação na capacidade solicitada, $u_{\text{sat}}(t) = \operatorname{clip}(u(t), -400, +400)$), a Equação~\eqref{eq:atuador_fisico} reescreve-se como:
+\begin{equation}
+    2\,\frac{d\Delta\mu(t)}{dt} + \Delta\mu(t) = u(t), \qquad \Delta\mu(0) = 0.
+    \label{eq:atuador_inc}
+\end{equation}

@@ -1,0 +1,1788 @@
+{
+  "parametros_sistema": {
+    "lambda_0_evs": 1000.0,
+    "mu_0_evs": 1000.0,
+    "q_0_ev": 600.0,
+    "q_ref_ev": 300.0,
+    "x_ref_ev": 300.0,
+    "tau_p_s": 2.0,
+    "mu_min_evs": 600.0,
+    "mu_max_evs": 1400.0,
+    "t_dist_s": 20.0,
+    "dlambda_step_evs": 100.0,
+    "t_end_s": 60.0,
+    "tau_f_s": 0.05,
+    "requisitos": {
+      "tr_max_s": 5.0,
+      "ts_max_s": 12.0,
+      "Mp_max_pct": 10.0,
+      "ess_max_ev": 10.0,
+      "PM_min_deg": 45.0,
+      "mu_min_evs": 600.0,
+      "mu_max_evs": 1400.0
+    }
+  },
+  "malha_aberta": {
+    "polos": [
+      0.0,
+      -0.5
+    ],
+    "zeros": [],
+    "passos": {
+      "U0_100": {
+        "t_esvaziamento_s": 7.97,
+        "mu_final_evs": 1099.75
+      },
+      "U0_300": {
+        "t_esvaziamento_s": 3.69,
+        "mu_final_evs": 1299.26
+      }
+    }
+  },
+  "proporcional_sweep": {
+    "K_0.08": {
+      "nome": "P (K=0.08)",
+      "ganhos": {
+        "Kp": 0.08,
+        "Ki": 0.0,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.4,
+          "im": 0.0
+        },
+        {
+          "re": -0.1,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 81.0193,
+        "wcg_rads": null,
+        "wcp_rads": 0.079
+      },
+      "metricas_degrau": {
+        "tr_s": 23.12,
+        "ts_s": 41.998,
+        "Mp_pct": 0.0,
+        "ess_ev": 0.9915,
+        "x_max_ev": 299.0085,
+        "q_min_ev": 300.9915
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 1250.0,
+        "ess_dist_sim_ev": 1226.5715,
+        "x_min_apos_dist_ev": -926.5715,
+        "q_max_apos_dist_ev": 1526.5715,
+        "ts_recup_2pct_s": 37.72
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1098.13,
+        "mu_c_min_evs": 1004.33,
+        "mu_max_evs": 1097.66,
+        "mu_min_evs": 1000.0,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": false,
+        "b_ts": false,
+        "c_Mp": true,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      },
+      "wn_rads": 0.2,
+      "zeta": 1.25
+    },
+    "K_0.125": {
+      "nome": "P (K=0.125)",
+      "ganhos": {
+        "Kp": 0.125,
+        "Ki": 0.0,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.25,
+          "im": 0.0
+        },
+        {
+          "re": -0.25,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 76.3454,
+        "wcg_rads": null,
+        "wcp_rads": 0.1215
+      },
+      "metricas_degrau": {
+        "tr_s": 13.432,
+        "ts_s": 23.336,
+        "Mp_pct": 0.0,
+        "ess_ev": 0.0015,
+        "x_max_ev": 299.9985,
+        "q_min_ev": 300.0015
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 800.0,
+        "ess_dist_sim_ev": 799.7836,
+        "x_min_apos_dist_ev": -499.7836,
+        "q_max_apos_dist_ev": 1099.7836,
+        "ts_recup_2pct_s": 25.078
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1099.97,
+        "mu_c_min_evs": 1001.52,
+        "mu_max_evs": 1099.95,
+        "mu_min_evs": 1000.0,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": false,
+        "b_ts": false,
+        "c_Mp": true,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      },
+      "wn_rads": 0.25,
+      "zeta": 1.0
+    },
+    "K_0.369": {
+      "nome": "P (K=0.369)",
+      "ganhos": {
+        "Kp": 0.369,
+        "Ki": 0.0,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.25,
+          "im": 0.34928
+        },
+        {
+          "re": -0.25,
+          "im": -0.34928
+        }
+      ],
+      "zeros_cl": [],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 57.9682,
+        "wcg_rads": null,
+        "wcp_rads": 0.3128
+      },
+      "metricas_degrau": {
+        "tr_s": 4.216,
+        "ts_s": 13.752,
+        "Mp_pct": 10.5548,
+        "ess_ev": 0.0,
+        "x_max_ev": 331.6644,
+        "q_min_ev": 268.3356
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 271.0027,
+        "ess_dist_sim_ev": 271.0048,
+        "x_min_apos_dist_ev": -19.1553,
+        "q_max_apos_dist_ev": 619.1553,
+        "ts_recup_2pct_s": 11.458
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1117.77,
+        "mu_c_min_evs": 988.32,
+        "mu_max_evs": 1110.48,
+        "mu_min_evs": 993.11,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      },
+      "wn_rads": 0.4295,
+      "zeta": 0.582
+    },
+    "K_2.0": {
+      "nome": "P (K=2.0)",
+      "ganhos": {
+        "Kp": 2.0,
+        "Ki": 0.0,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.25,
+          "im": 0.96825
+        },
+        {
+          "re": -0.25,
+          "im": -0.96825
+        }
+      ],
+      "zeros_cl": [],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 28.0202,
+        "wcg_rads": null,
+        "wcp_rads": 0.9396
+      },
+      "metricas_degrau": {
+        "tr_s": 1.26,
+        "ts_s": 14.118,
+        "Mp_pct": 44.4344,
+        "ess_ev": 0.0,
+        "x_max_ev": 433.3032,
+        "q_min_ev": 166.6968
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 50.0,
+        "ess_dist_sim_ev": 50.0024,
+        "x_min_apos_dist_ev": 188.1861,
+        "q_max_apos_dist_ev": 411.8139,
+        "ts_recup_2pct_s": 9.526
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1600.0,
+        "mu_c_min_evs": 733.39,
+        "mu_max_evs": 1213.46,
+        "mu_min_evs": 905.15,
+        "tempo_saturado_s": 0.91
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": false,
+        "e_PM": false,
+        "f_cap": true,
+        "atende_todos": false
+      },
+      "wn_rads": 1.0,
+      "zeta": 0.25
+    }
+  },
+  "lineares": {
+    "P_ref": {
+      "nome": "P_ref",
+      "ganhos": {
+        "Kp": 0.369,
+        "Ki": 0.0,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.25,
+          "im": 0.34928
+        },
+        {
+          "re": -0.25,
+          "im": -0.34928
+        }
+      ],
+      "zeros_cl": [],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 57.9682,
+        "wcg_rads": null,
+        "wcp_rads": 0.3128
+      },
+      "metricas_degrau": {
+        "tr_s": 4.216,
+        "ts_s": 13.752,
+        "Mp_pct": 10.5548,
+        "ess_ev": 0.0,
+        "x_max_ev": 331.6644,
+        "q_min_ev": 268.3356
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 271.0027,
+        "ess_dist_sim_ev": 271.0048,
+        "x_min_apos_dist_ev": -19.1553,
+        "q_max_apos_dist_ev": 619.1553,
+        "ts_recup_2pct_s": 11.458
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1117.77,
+        "mu_c_min_evs": 988.32,
+        "mu_max_evs": 1110.48,
+        "mu_min_evs": 993.11,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PI_estavel": {
+      "nome": "PI_estavel",
+      "ganhos": {
+        "Kp": 0.35,
+        "Ki": 0.03,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.19267,
+          "im": 0.3061
+        },
+        {
+          "re": -0.19267,
+          "im": -0.3061
+        },
+        {
+          "re": -0.11467,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.08571,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 42.781,
+        "wcg_rads": null,
+        "wcp_rads": 0.309
+      },
+      "metricas_degrau": {
+        "tr_s": 3.614,
+        "ts_s": 19.578,
+        "Mp_pct": 34.6688,
+        "ess_ev": -0.1339,
+        "x_max_ev": 404.0064,
+        "q_min_ev": 195.9936
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 3.6028,
+        "x_min_apos_dist_ev": 5.6485,
+        "q_max_apos_dist_ev": 594.3515,
+        "ts_recup_2pct_s": 32.332
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1143.18,
+        "mu_c_min_evs": 980.14,
+        "mu_max_evs": 1134.35,
+        "mu_min_evs": 985.09,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": true,
+        "e_PM": false,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PI_instavel": {
+      "nome": "PI_instavel",
+      "ganhos": {
+        "Kp": 0.5,
+        "Ki": 0.3,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": false,
+      "polos_cl": [
+        {
+          "re": -0.54564,
+          "im": 0.0
+        },
+        {
+          "re": 0.02282,
+          "im": 0.52382
+        },
+        {
+          "re": 0.02282,
+          "im": -0.52382
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.6,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": -5.211,
+        "wcg_rads": null,
+        "wcp_rads": 0.5244
+      },
+      "metricas_degrau": {
+        "tr_s": null,
+        "ts_s": null,
+        "Mp_pct": null,
+        "ess_ev": null,
+        "x_max_ev": null,
+        "q_min_ev": null
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": null,
+        "ess_dist_sim_ev": null,
+        "x_min_apos_dist_ev": null,
+        "q_max_apos_dist_ev": null,
+        "ts_recup_2pct_s": null
+      },
+      "capacidade": {
+        "mu_c_max_evs": 2042.85,
+        "mu_c_min_evs": 29.85,
+        "mu_max_evs": 1752.48,
+        "mu_min_evs": 351.81,
+        "tempo_saturado_s": 24.076
+      },
+      "requisitos": {
+        "a_tr": false,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": false,
+        "e_PM": false,
+        "f_cap": false,
+        "atende_todos": false
+      }
+    },
+    "PD_filt": {
+      "nome": "PD_filt",
+      "ganhos": {
+        "Kp": 1.28,
+        "Ki": 0.0,
+        "Kd": 1.56,
+        "tau_f": 0.05
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -19.16574,
+          "im": 0.0
+        },
+        {
+          "re": -0.66713,
+          "im": 0.47201
+        },
+        {
+          "re": -0.66713,
+          "im": -0.47201
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.78818,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 75.3303,
+        "wcg_rads": null,
+        "wcp_rads": 0.9354
+      },
+      "metricas_degrau": {
+        "tr_s": 1.74,
+        "ts_s": 6.018,
+        "Mp_pct": 4.7039,
+        "ess_ev": -0.0,
+        "x_max_ev": 314.1117,
+        "q_min_ev": 285.8883
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 78.125,
+        "ess_dist_sim_ev": 78.125,
+        "x_min_apos_dist_ev": 208.132,
+        "q_max_apos_dist_ev": 391.868,
+        "ts_recup_2pct_s": 4.674
+      },
+      "capacidade": {
+        "mu_c_max_evs": 10744.0,
+        "mu_c_min_evs": 927.94,
+        "mu_max_evs": 1228.43,
+        "mu_min_evs": 995.17,
+        "tempo_saturado_s": 0.164
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": true,
+        "c_Mp": true,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      },
+      "ideal_sem_filtro": {
+        "polos_cl": [
+          {
+            "re": -0.64,
+            "im": 0.48
+          },
+          {
+            "re": -0.64,
+            "im": -0.48
+          }
+        ],
+        "margens": {
+          "GM_abs": "inf",
+          "GM_dB": "inf",
+          "PM_deg": 76.7878,
+          "wcg_rads": null,
+          "wcp_rads": 0.9186
+        },
+        "metricas_degrau": {
+          "tr_s": 1.832,
+          "ts_s": 6.17,
+          "Mp_pct": 4.7644,
+          "ess_ev": 0.0,
+          "x_max_ev": 314.2931,
+          "q_min_ev": 285.7069
+        }
+      }
+    },
+    "PD_alt_filt": {
+      "nome": "PD_alt_filt",
+      "ganhos": {
+        "Kp": 2.0,
+        "Ki": 0.0,
+        "Kd": 2.4,
+        "tau_f": 0.05
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.68403,
+          "im": 0.0
+        },
+        {
+          "re": -0.90798,
+          "im": 0.49598
+        },
+        {
+          "re": -0.90798,
+          "im": -0.49598
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.8,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 75.8268,
+        "wcg_rads": null,
+        "wcp_rads": 1.3583
+      },
+      "metricas_degrau": {
+        "tr_s": 1.178,
+        "ts_s": 4.662,
+        "Mp_pct": 5.288,
+        "ess_ev": 0.0,
+        "x_max_ev": 315.8641,
+        "q_min_ev": 284.1359
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 50.0,
+        "ess_dist_sim_ev": 50.0,
+        "x_min_apos_dist_ev": 237.2354,
+        "q_max_apos_dist_ev": 362.7646,
+        "ts_recup_2pct_s": 3.382
+      },
+      "capacidade": {
+        "mu_c_max_evs": 16000.0,
+        "mu_c_min_evs": 669.54,
+        "mu_max_evs": 1338.85,
+        "mu_min_evs": 993.43,
+        "tempo_saturado_s": 0.16
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": true,
+        "c_Mp": true,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PID_nom_filt": {
+      "nome": "PID_nom_filt",
+      "ganhos": {
+        "Kp": 2.16,
+        "Ki": 0.243,
+        "Kd": 2.9,
+        "tau_f": 0.05
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.38369,
+          "im": 0.0
+        },
+        {
+          "re": -1.2788,
+          "im": 0.0
+        },
+        {
+          "re": -0.68707,
+          "im": 0.0
+        },
+        {
+          "re": -0.15044,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.58373,
+          "im": 0.0
+        },
+        {
+          "re": -0.13839,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 77.6746,
+        "wcg_rads": null,
+        "wcp_rads": 1.5318
+      },
+      "metricas_degrau": {
+        "tr_s": 1.022,
+        "ts_s": 10.44,
+        "Mp_pct": 8.1337,
+        "ess_ev": -0.0034,
+        "x_max_ev": 324.4011,
+        "q_min_ev": 275.5989
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 0.1496,
+        "x_min_apos_dist_ev": 246.7574,
+        "q_max_apos_dist_ev": 353.2426,
+        "ts_recup_2pct_s": 15.302
+      },
+      "capacidade": {
+        "mu_c_max_evs": 19048.0,
+        "mu_c_min_evs": 428.66,
+        "mu_max_evs": 1397.01,
+        "mu_min_evs": 995.56,
+        "tempo_saturado_s": 0.588
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": true,
+        "c_Mp": true,
+        "d_ess": true,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": true
+      },
+      "ideal_sem_filtro": {
+        "polos_cl": [
+          {
+            "re": -0.9,
+            "im": 0.0
+          },
+          {
+            "re": -0.9,
+            "im": -0.0
+          },
+          {
+            "re": -0.15,
+            "im": 0.0
+          }
+        ],
+        "margens": {
+          "GM_abs": "inf",
+          "GM_dB": "inf",
+          "PM_deg": 81.1019,
+          "wcg_rads": null,
+          "wcp_rads": 1.4906
+        },
+        "metricas_degrau": {
+          "tr_s": 1.12,
+          "ts_s": 10.384,
+          "Mp_pct": 8.2886,
+          "ess_ev": -0.0035,
+          "x_max_ev": 324.8659,
+          "q_min_ev": 275.1341
+        }
+      }
+    },
+    "PID_adj_filt": {
+      "nome": "PID_adj_filt",
+      "ganhos": {
+        "Kp": 3.06,
+        "Ki": 0.648,
+        "Kd": 3.4,
+        "tau_f": 0.05
+      },
+      "saturacao": false,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.07455,
+          "im": 0.0
+        },
+        {
+          "re": -1.40114,
+          "im": 0.0
+        },
+        {
+          "re": -0.59235,
+          "im": 0.0
+        },
+        {
+          "re": -0.43197,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.51886,
+          "im": 0.0
+        },
+        {
+          "re": -0.3515,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 73.2767,
+        "wcg_rads": null,
+        "wcp_rads": 1.8074
+      },
+      "metricas_degrau": {
+        "tr_s": 0.784,
+        "ts_s": 6.732,
+        "Mp_pct": 12.6015,
+        "ess_ev": -0.0,
+        "x_max_ev": 337.8046,
+        "q_min_ev": 262.1954
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 0.0,
+        "x_min_apos_dist_ev": 256.0695,
+        "q_max_apos_dist_ev": 343.9305,
+        "ts_recup_2pct_s": 5.954
+      },
+      "capacidade": {
+        "mu_c_max_evs": 22318.0,
+        "mu_c_min_evs": 209.82,
+        "mu_max_evs": 1467.68,
+        "mu_min_evs": 989.08,
+        "tempo_saturado_s": 0.816
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": true,
+        "c_Mp": false,
+        "d_ess": true,
+        "e_PM": true,
+        "f_cap": false,
+        "atende_todos": false
+      },
+      "ideal_sem_filtro": {
+        "polos_cl": [
+          {
+            "re": -0.9,
+            "im": 0.0
+          },
+          {
+            "re": -0.9,
+            "im": 0.0
+          },
+          {
+            "re": -0.4,
+            "im": 0.0
+          }
+        ],
+        "margens": {
+          "GM_abs": "inf",
+          "GM_dB": "inf",
+          "PM_deg": 77.1927,
+          "wcg_rads": null,
+          "wcp_rads": 1.7483
+        },
+        "metricas_degrau": {
+          "tr_s": 0.874,
+          "ts_s": 6.68,
+          "Mp_pct": 12.6769,
+          "ess_ev": -0.0,
+          "x_max_ev": 338.0306,
+          "q_min_ev": 261.9694
+        }
+      }
+    }
+  },
+  "nao_lineares_saturacao": {
+    "P_ref_sat": {
+      "nome": "P_ref_sat",
+      "ganhos": {
+        "Kp": 0.369,
+        "Ki": 0.0,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": true,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.25,
+          "im": 0.34928
+        },
+        {
+          "re": -0.25,
+          "im": -0.34928
+        }
+      ],
+      "zeros_cl": [],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 57.9682,
+        "wcg_rads": null,
+        "wcp_rads": 0.3128
+      },
+      "metricas_degrau": {
+        "tr_s": 4.216,
+        "ts_s": 13.752,
+        "Mp_pct": 10.5548,
+        "ess_ev": 0.0,
+        "x_max_ev": 331.6644,
+        "q_min_ev": 268.3356
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 271.0027,
+        "ess_dist_sim_ev": 271.0048,
+        "x_min_apos_dist_ev": -19.1553,
+        "q_max_apos_dist_ev": 619.1553,
+        "ts_recup_2pct_s": 11.458
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1117.77,
+        "mu_c_min_evs": 988.32,
+        "mu_max_evs": 1110.48,
+        "mu_min_evs": 993.11,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PI_estavel_sat_noAW": {
+      "nome": "PI_estavel_sat_noAW",
+      "ganhos": {
+        "Kp": 0.35,
+        "Ki": 0.03,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": true,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.19267,
+          "im": 0.3061
+        },
+        {
+          "re": -0.19267,
+          "im": -0.3061
+        },
+        {
+          "re": -0.11467,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.08571,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 42.781,
+        "wcg_rads": null,
+        "wcp_rads": 0.309
+      },
+      "metricas_degrau": {
+        "tr_s": 3.614,
+        "ts_s": 19.578,
+        "Mp_pct": 34.6688,
+        "ess_ev": -0.1339,
+        "x_max_ev": 404.0064,
+        "q_min_ev": 195.9936
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 3.6028,
+        "x_min_apos_dist_ev": 5.6485,
+        "q_max_apos_dist_ev": 594.3515,
+        "ts_recup_2pct_s": 32.332
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1143.18,
+        "mu_c_min_evs": 980.14,
+        "mu_max_evs": 1134.35,
+        "mu_min_evs": 985.09,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": true,
+        "e_PM": false,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PI_estavel_sat_clamp": {
+      "nome": "PI_estavel_sat_clamp",
+      "ganhos": {
+        "Kp": 0.35,
+        "Ki": 0.03,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": true,
+      "anti_windup": "clamp",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -0.19267,
+          "im": 0.3061
+        },
+        {
+          "re": -0.19267,
+          "im": -0.3061
+        },
+        {
+          "re": -0.11467,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.08571,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 42.781,
+        "wcg_rads": null,
+        "wcp_rads": 0.309
+      },
+      "metricas_degrau": {
+        "tr_s": 3.614,
+        "ts_s": 19.578,
+        "Mp_pct": 34.6688,
+        "ess_ev": -0.1339,
+        "x_max_ev": 404.0064,
+        "q_min_ev": 195.9936
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 3.6028,
+        "x_min_apos_dist_ev": 5.6485,
+        "q_max_apos_dist_ev": 594.3515,
+        "ts_recup_2pct_s": 32.332
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1143.18,
+        "mu_c_min_evs": 980.14,
+        "mu_max_evs": 1134.35,
+        "mu_min_evs": 985.09,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": true,
+        "e_PM": false,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PI_instavel_sat": {
+      "nome": "PI_instavel_sat",
+      "ganhos": {
+        "Kp": 0.5,
+        "Ki": 0.3,
+        "Kd": 0.0,
+        "tau_f": 0.0
+      },
+      "saturacao": true,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": false,
+      "polos_cl": [
+        {
+          "re": -0.54564,
+          "im": 0.0
+        },
+        {
+          "re": 0.02282,
+          "im": 0.52382
+        },
+        {
+          "re": 0.02282,
+          "im": -0.52382
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.6,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": -5.211,
+        "wcg_rads": null,
+        "wcp_rads": 0.5244
+      },
+      "metricas_degrau": {
+        "tr_s": null,
+        "ts_s": null,
+        "Mp_pct": null,
+        "ess_ev": null,
+        "x_max_ev": null,
+        "q_min_ev": null
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": null,
+        "ess_dist_sim_ev": null,
+        "x_min_apos_dist_ev": null,
+        "q_max_apos_dist_ev": null,
+        "ts_recup_2pct_s": null
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1529.98,
+        "mu_c_min_evs": 756.46,
+        "mu_max_evs": 1354.91,
+        "mu_min_evs": 830.6,
+        "tempo_saturado_s": 3.524
+      },
+      "requisitos": {
+        "a_tr": false,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": false,
+        "e_PM": false,
+        "f_cap": false,
+        "atende_todos": false
+      }
+    },
+    "PD_filt_sat_Derr": {
+      "nome": "PD_filt_sat_Derr",
+      "ganhos": {
+        "Kp": 1.28,
+        "Ki": 0.0,
+        "Kd": 1.56,
+        "tau_f": 0.05
+      },
+      "saturacao": true,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -19.16574,
+          "im": 0.0
+        },
+        {
+          "re": -0.66713,
+          "im": 0.47201
+        },
+        {
+          "re": -0.66713,
+          "im": -0.47201
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.78818,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 75.3303,
+        "wcg_rads": null,
+        "wcp_rads": 0.9354
+      },
+      "metricas_degrau": {
+        "tr_s": 3.08,
+        "ts_s": 4.716,
+        "Mp_pct": 1.1864,
+        "ess_ev": -0.0,
+        "x_max_ev": 303.5593,
+        "q_min_ev": 296.4407
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 78.125,
+        "ess_dist_sim_ev": 78.125,
+        "x_min_apos_dist_ev": 208.1321,
+        "q_max_apos_dist_ev": 391.8679,
+        "ts_recup_2pct_s": 4.674
+      },
+      "capacidade": {
+        "mu_c_max_evs": 10744.0,
+        "mu_c_min_evs": 981.83,
+        "mu_max_evs": 1104.7,
+        "mu_min_evs": 998.78,
+        "tempo_saturado_s": 0.24
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": true,
+        "c_Mp": true,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PD_filt_sat_Dmeas": {
+      "nome": "PD_filt_sat_Dmeas",
+      "ganhos": {
+        "Kp": 1.28,
+        "Ki": 0.0,
+        "Kd": 1.56,
+        "tau_f": 0.05
+      },
+      "saturacao": true,
+      "anti_windup": "none",
+      "deriv_na_medicao": true,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -19.16574,
+          "im": 0.0
+        },
+        {
+          "re": -0.66713,
+          "im": 0.47201
+        },
+        {
+          "re": -0.66713,
+          "im": -0.47201
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.78818,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 75.3303,
+        "wcg_rads": null,
+        "wcp_rads": 0.9354
+      },
+      "metricas_degrau": {
+        "tr_s": 3.096,
+        "ts_s": 4.762,
+        "Mp_pct": 1.1792,
+        "ess_ev": 0.0,
+        "x_max_ev": 303.5375,
+        "q_min_ev": 296.4625
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 78.125,
+        "ess_dist_sim_ev": 78.125,
+        "x_min_apos_dist_ev": 208.1321,
+        "q_max_apos_dist_ev": 391.8679,
+        "ts_recup_2pct_s": 4.674
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1384.0,
+        "mu_c_min_evs": 981.94,
+        "mu_max_evs": 1104.7,
+        "mu_min_evs": 998.79,
+        "tempo_saturado_s": 0.0
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": true,
+        "c_Mp": true,
+        "d_ess": false,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PID_nom_sat_noAW_Derr": {
+      "nome": "PID_nom_sat_noAW_Derr",
+      "ganhos": {
+        "Kp": 2.16,
+        "Ki": 0.243,
+        "Kd": 2.9,
+        "tau_f": 0.05
+      },
+      "saturacao": true,
+      "anti_windup": "none",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.38369,
+          "im": 0.0
+        },
+        {
+          "re": -1.2788,
+          "im": 0.0
+        },
+        {
+          "re": -0.68707,
+          "im": 0.0
+        },
+        {
+          "re": -0.15044,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.58373,
+          "im": 0.0
+        },
+        {
+          "re": -0.13839,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 77.6746,
+        "wcg_rads": null,
+        "wcp_rads": 1.5318
+      },
+      "metricas_degrau": {
+        "tr_s": 2.236,
+        "ts_s": 21.68,
+        "Mp_pct": 15.7867,
+        "ess_ev": -0.0188,
+        "x_max_ev": 347.36,
+        "q_min_ev": 252.64
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 0.1342,
+        "x_min_apos_dist_ev": 251.7527,
+        "q_max_apos_dist_ev": 348.2473,
+        "ts_recup_2pct_s": 14.598
+      },
+      "capacidade": {
+        "mu_c_max_evs": 19048.0,
+        "mu_c_min_evs": 979.52,
+        "mu_max_evs": 1130.11,
+        "mu_min_evs": 995.36,
+        "tempo_saturado_s": 0.502
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": true,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PID_nom_sat_clamp_Derr": {
+      "nome": "PID_nom_sat_clamp_Derr",
+      "ganhos": {
+        "Kp": 2.16,
+        "Ki": 0.243,
+        "Kd": 2.9,
+        "tau_f": 0.05
+      },
+      "saturacao": true,
+      "anti_windup": "clamp",
+      "deriv_na_medicao": false,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.38369,
+          "im": 0.0
+        },
+        {
+          "re": -1.2788,
+          "im": 0.0
+        },
+        {
+          "re": -0.68707,
+          "im": 0.0
+        },
+        {
+          "re": -0.15044,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.58373,
+          "im": 0.0
+        },
+        {
+          "re": -0.13839,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 77.6746,
+        "wcg_rads": null,
+        "wcp_rads": 1.5318
+      },
+      "metricas_degrau": {
+        "tr_s": 2.412,
+        "ts_s": 20.214,
+        "Mp_pct": 12.1577,
+        "ess_ev": -0.0151,
+        "x_max_ev": 336.473,
+        "q_min_ev": 263.527
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 0.138,
+        "x_min_apos_dist_ev": 250.5483,
+        "q_max_apos_dist_ev": 349.4517,
+        "ts_recup_2pct_s": 14.776
+      },
+      "capacidade": {
+        "mu_c_max_evs": 19048.0,
+        "mu_c_min_evs": 982.13,
+        "mu_max_evs": 1124.42,
+        "mu_min_evs": 996.42,
+        "tempo_saturado_s": 0.45
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": true,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PID_nom_sat_clamp_Dmeas": {
+      "nome": "PID_nom_sat_clamp_Dmeas",
+      "ganhos": {
+        "Kp": 2.16,
+        "Ki": 0.243,
+        "Kd": 2.9,
+        "tau_f": 0.05
+      },
+      "saturacao": true,
+      "anti_windup": "clamp",
+      "deriv_na_medicao": true,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.38369,
+          "im": 0.0
+        },
+        {
+          "re": -1.2788,
+          "im": 0.0
+        },
+        {
+          "re": -0.68707,
+          "im": 0.0
+        },
+        {
+          "re": -0.15044,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.58373,
+          "im": 0.0
+        },
+        {
+          "re": -0.13839,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 77.6746,
+        "wcg_rads": null,
+        "wcp_rads": 1.5318
+      },
+      "metricas_degrau": {
+        "tr_s": 2.41,
+        "ts_s": 20.228,
+        "Mp_pct": 12.1869,
+        "ess_ev": -0.0151,
+        "x_max_ev": 336.5606,
+        "q_min_ev": 263.4394
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 0.1379,
+        "x_min_apos_dist_ev": 250.5583,
+        "q_max_apos_dist_ev": 349.4417,
+        "ts_recup_2pct_s": 14.774
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1648.0,
+        "mu_c_min_evs": 982.11,
+        "mu_max_evs": 1124.45,
+        "mu_min_evs": 996.41,
+        "tempo_saturado_s": 0.448
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": true,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PID_nom_sat_backcalc_Dmeas": {
+      "nome": "PID_nom_sat_backcalc_Dmeas",
+      "ganhos": {
+        "Kp": 2.16,
+        "Ki": 0.243,
+        "Kd": 2.9,
+        "tau_f": 0.05
+      },
+      "saturacao": true,
+      "anti_windup": "backcalc",
+      "deriv_na_medicao": true,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.38369,
+          "im": 0.0
+        },
+        {
+          "re": -1.2788,
+          "im": 0.0
+        },
+        {
+          "re": -0.68707,
+          "im": 0.0
+        },
+        {
+          "re": -0.15044,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.58373,
+          "im": 0.0
+        },
+        {
+          "re": -0.13839,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 77.6746,
+        "wcg_rads": null,
+        "wcp_rads": 1.5318
+      },
+      "metricas_degrau": {
+        "tr_s": 2.802,
+        "ts_s": 16.762,
+        "Mp_pct": 6.4991,
+        "ess_ev": -0.009,
+        "x_max_ev": 319.4973,
+        "q_min_ev": 280.5027
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 0.1441,
+        "x_min_apos_dist_ev": 248.5708,
+        "q_max_apos_dist_ev": 351.4292,
+        "ts_recup_2pct_s": 15.056
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1648.0,
+        "mu_c_min_evs": 986.44,
+        "mu_max_evs": 1114.78,
+        "mu_min_evs": 998.09,
+        "tempo_saturado_s": 0.354
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": true,
+        "d_ess": true,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PID_adj_sat_clamp_Dmeas": {
+      "nome": "PID_adj_sat_clamp_Dmeas",
+      "ganhos": {
+        "Kp": 3.06,
+        "Ki": 0.648,
+        "Kd": 3.4,
+        "tau_f": 0.05
+      },
+      "saturacao": true,
+      "anti_windup": "clamp",
+      "deriv_na_medicao": true,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.07455,
+          "im": 0.0
+        },
+        {
+          "re": -1.40114,
+          "im": 0.0
+        },
+        {
+          "re": -0.59235,
+          "im": 0.0
+        },
+        {
+          "re": -0.43197,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.51886,
+          "im": 0.0
+        },
+        {
+          "re": -0.3515,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 73.2767,
+        "wcg_rads": null,
+        "wcp_rads": 1.8074
+      },
+      "metricas_degrau": {
+        "tr_s": 1.938,
+        "ts_s": 12.114,
+        "Mp_pct": 14.9725,
+        "ess_ev": -0.0,
+        "x_max_ev": 344.9176,
+        "q_min_ev": 255.0824
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 0.0,
+        "x_min_apos_dist_ev": 256.2129,
+        "q_max_apos_dist_ev": 343.7871,
+        "ts_recup_2pct_s": 5.948
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1918.0,
+        "mu_c_min_evs": 957.41,
+        "mu_max_evs": 1147.8,
+        "mu_min_evs": 991.77,
+        "tempo_saturado_s": 0.71
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": false,
+        "c_Mp": false,
+        "d_ess": true,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": false
+      }
+    },
+    "PID_adj_sat_backcalc_Dmeas": {
+      "nome": "PID_adj_sat_backcalc_Dmeas",
+      "ganhos": {
+        "Kp": 3.06,
+        "Ki": 0.648,
+        "Kd": 3.4,
+        "tau_f": 0.05
+      },
+      "saturacao": true,
+      "anti_windup": "backcalc",
+      "deriv_na_medicao": true,
+      "estavel": true,
+      "polos_cl": [
+        {
+          "re": -18.07455,
+          "im": 0.0
+        },
+        {
+          "re": -1.40114,
+          "im": 0.0
+        },
+        {
+          "re": -0.59235,
+          "im": 0.0
+        },
+        {
+          "re": -0.43197,
+          "im": 0.0
+        }
+      ],
+      "zeros_cl": [
+        {
+          "re": -0.51886,
+          "im": 0.0
+        },
+        {
+          "re": -0.3515,
+          "im": 0.0
+        }
+      ],
+      "margens": {
+        "GM_abs": "inf",
+        "GM_dB": "inf",
+        "PM_deg": 73.2767,
+        "wcg_rads": null,
+        "wcp_rads": 1.8074
+      },
+      "metricas_degrau": {
+        "tr_s": 2.37,
+        "ts_s": 10.744,
+        "Mp_pct": 6.9797,
+        "ess_ev": -0.0,
+        "x_max_ev": 320.9391,
+        "q_min_ev": 279.0609
+      },
+      "metricas_perturbacao": {
+        "ess_dist_teorico_ev": 0.0,
+        "ess_dist_sim_ev": 0.0,
+        "x_min_apos_dist_ev": 256.1563,
+        "q_max_apos_dist_ev": 343.8437,
+        "ts_recup_2pct_s": 5.95
+      },
+      "capacidade": {
+        "mu_c_max_evs": 1918.0,
+        "mu_c_min_evs": 972.04,
+        "mu_max_evs": 1130.21,
+        "mu_min_evs": 996.15,
+        "tempo_saturado_s": 0.534
+      },
+      "requisitos": {
+        "a_tr": true,
+        "b_ts": true,
+        "c_Mp": true,
+        "d_ess": true,
+        "e_PM": true,
+        "f_cap": true,
+        "atende_todos": true
+      }
+    }
+  }
+}

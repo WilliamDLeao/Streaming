@@ -1,0 +1,31 @@
+% ==============================================================================
+% APENDICE A (ABNT NBR 14724)
+% ==============================================================================
+\clearpage
+\appendix
+\singlespacing
+\phantomsection
+\addcontentsline{toc}{section}{APÊNDICE A – CÓDIGO-FONTE DE SIMULAÇÃO EM PYTHON}
+\twocolumn[\begin{center}\textbf{APÊNDICE A – CÓDIGO-FONTE DE SIMULAÇÃO EM PYTHON (\texttt{codigo/})}\label{ap:codigo}\end{center}\vspace{2pt}]
+
+% Ajuste local apenas no Apendice A para acomodar os modulos em ate 30 paginas totais
+\lstset{
+  basicstyle=\ttfamily\fontsize{3.4}{3.9}\selectfont,
+  numberstyle=\fontsize{2.9}{3.5}\selectfont\color{codecm},
+  aboveskip=1pt,
+  belowskip=1pt
+}
+
+\newcommand{\codigomodulo}[2]{%
+  \par\vspace{1.5pt}%
+  {\noindent\fontsize{5.2}{6.0}\selectfont\bfseries\texttt{#1}\par\vspace{0.5pt}}%
+  \lstinputlisting[style=pythoncompact,basicstyle=\ttfamily\fontsize{3.4}{3.9}\selectfont,numberstyle=\fontsize{2.9}{3.5}\selectfont\color{codecm},aboveskip=1pt,belowskip=1pt]{#2}%
+}
+
+\codigomodulo{codigo/main.py}{../codigo/main.py}
+\codigomodulo{codigo/streaming\_control/\_\_init\_\_.py}{../codigo/streaming_control/__init__.py}
+\codigomodulo{codigo/streaming\_control/config.py}{../codigo/streaming_control/config.py}
+\codigomodulo{codigo/streaming\_control/models.py}{../codigo/streaming_control/models.py}
+\codigomodulo{codigo/streaming\_control/simulator.py}{../codigo/streaming_control/simulator.py}
+\codigomodulo{codigo/streaming\_control/evaluation.py}{../codigo/streaming_control/evaluation.py}
+\codigomodulo{codigo/streaming\_control/plotting.py}{../codigo/streaming_control/plotting.py}

@@ -1,0 +1,82 @@
+% 1. CAPA (nao entra na contagem de paginas)
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+    \singlespacing
+    \textbf{ENGENHARIA DE CONTROLE E SISTEMAS DINÂMICOS}\\
+    \textbf{RELATÓRIO TÉCNICO-CIENTÍFICO}
+
+    \vfill
+
+    {\bfseries\large MODELAGEM DINÂMICA E CONTROLE DE DESEMPENHO DE UM SISTEMA DE PROCESSAMENTO DE DADOS EM \textit{STREAMING}}\\[0.5cm]
+    {Modelagem Analítica, Lugar Geométrico das Raízes, Resposta em Frequência e Projeto de Controladores P, PI, PD e PID com Saturação}
+
+    \vfill
+
+    Brasil\\
+    2026
+\end{center}
+\end{titlepage}
+
+% A contagem inicia na folha de rosto (pagina 1), sem exibicao do numero
+\pagestyle{empty}
+
+% 2. FOLHA DE ROSTO
+\thispagestyle{empty}
+\begin{center}
+    \singlespacing
+    \textbf{ENGENHARIA DE CONTROLE E SISTEMAS DINÂMICOS}\\
+    \textbf{ANÁLISE, PROJETO E SIMULAÇÃO DE SISTEMAS DE CONTROLE}
+
+    \vspace{4.0cm}
+
+    {\bfseries\large MODELAGEM DINÂMICA E CONTROLE DE DESEMPENHO DE UM SISTEMA DE PROCESSAMENTO DE DADOS EM \textit{STREAMING}:}\\[0.25cm]
+    {Modelagem Analítica, Lugar Geométrico das Raízes, Resposta em Frequência e Projeto de Controladores P, PI, PD e PID com Saturação}
+\end{center}
+
+\vspace{2.5cm}
+
+\noindent\hspace{0.42\textwidth}\parbox{0.58\textwidth}{%
+    \singlespacing\small
+    Relatório técnico-científico elaborado no âmbito da disciplina de Engenharia de Controle e Sistemas Dinâmicos, contemplando a modelagem física e matemática, o estudo de estabilidade pelo critério de Routh-Hurwitz, o traçado do Lugar Geométrico das Raízes, a análise frequencial por diagramas de Bode e o projeto comparativo de controladores P, PI, PD e PID aplicados à regulação de fila em plataforma de processamento contínuo em \textit{streaming} sob restrições operacionais.%
+}
+
+\vfill
+
+\begin{center}
+    \singlespacing
+    Brasil\\
+    2026
+\end{center}
+
+% 3. RESUMO (NBR 6028)
+\clearpage
+\thispagestyle{empty}
+\begin{center}
+    \textbf{RESUMO}
+\end{center}
+\vspace{0.6cm}
+
+\noindent{\singlespacing Este relatório técnico desenvolve a modelagem matemática, a análise dinâmica em malha aberta e malha fechada, o estudo de estabilidade pelo critério de Routh-Hurwitz, o traçado do Lugar Geométrico das Raízes (LGR), a análise em frequência via diagramas de Bode e o projeto comparativo de controladores clássicos (P, PI, PD e PID) aplicados à regulação de fila em uma plataforma contínua de processamento de eventos IoT em \textit{streaming}. A partir da conservação de fluxo na fila e da dinâmica de primeira ordem ($\tau = 2\text{ s}$) de alocação de recursos computacionais, obtém-se a planta integradora de segunda ordem $G(s) = \frac{1}{s(2s+1)}$. O sistema de controle tem por objetivo reduzir a fila de $q(0) = 600$ para $300\text{ eventos}$ ($x_r = 300\text{ eventos}$), cumprindo os requisitos de tempo de subida ($t_r \le 5\text{ s}$), tempo de acomodação ($t_s \le 12\text{ s}$), sobressinal ($M_p \le 10\%$), erro estacionário ($e_{ss} \le 10\text{ eventos}$), margem de fase ($\mathrm{PM} \ge 45^\circ$) e limites físicos de capacidade $\mu(t) \in [600,\,1400]\text{ eventos/s}$, inclusive sob perturbação permanente $\Delta\lambda(t) = +100\text{ eventos/s}$ em $t = 20\text{ s}$. Demonstra-se analítica e computacionalmente que o controlador P é incapaz de conciliar acomodação rápida, baixo sobressinal e rejeição à perturbação ($e_{ss,\text{dist}} = 100/K$); o controlador PI está sujeito à invariância de Vieta ($p_1+p_2+p_3 = -0{,}5\text{ s}^{-1}$), tornando inviável atingir simultaneamente $t_s \le 12\text{ s}$ e $M_p \le 10\%$; e o controlador PD mantém erro permanente frente à perturbação ($e_{ss,\text{dist}} = 100/K_p$). Conclui-se que apenas a arquitetura PID ajustada ($\alpha = 0{,}40\text{ s}^{-1}$, $K_p = 3{,}060$, $K_i = 0{,}648$, $K_d = 3{,}400$), implementada com filtro derivativo ($\tau_f = 0{,}05\text{ s}$), derivada na medição (eliminação do \textit{derivative kick}) e \textit{anti-windup} por \textit{back-calculation} ($T_t = 0{,}5\text{ s}$), satisfaz todas as especificações lineares e não lineares, alcançando $t_r = 2{,}370\text{ s}$, $t_s = 10{,}744\text{ s}$, $M_p = 6{,}98\%$, $e_{ss} = 0{,}00\text{ eventos}$, $\mathrm{PM} = 73{,}28^\circ$ e $\mu_{\max} = 1130{,}21\text{ eventos/s}$.\par}
+
+\vspace{0.5cm}
+\noindent{\singlespacing\textbf{Palavras-chave:} Controle em tempo real. Processamento em \textit{streaming}. Lugar Geométrico das Raízes. Controlador PID. \textit{Anti-windup}.\par}
+
+% 4. LISTA DE ILUSTRACOES (NBR 14724)
+\clearpage
+{\singlespacing\emergencystretch=2em
+\listoffigures
+}
+
+% 5. LISTA DE TABELAS (NBR 14724)
+\clearpage
+{\singlespacing\emergencystretch=2em
+\listoftables
+}
+
+% 6. SUMARIO (NBR 6027)
+\clearpage
+\setcounter{tocdepth}{2}
+{\singlespacing\emergencystretch=2em
+\tableofcontents
+}

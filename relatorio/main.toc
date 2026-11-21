@@ -1,0 +1,42 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {section}{\numberline {1}INTRODUÇÃO}{6}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Contextualização e Motivação}{6}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Problema Analisado, Objetivos e Organização do Trabalho}{6}{subsection.1.2}%
+\contentsline {section}{\numberline {2}COMPREENSÃO DO PROBLEMA E MODELAGEM FÍSICA}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Arquitetura Funcional e Diagrama de Blocos}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Princípio de Conservação de Fluxo na Fila}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Dinâmica da Capacidade Efetiva de Processamento}{9}{subsection.2.3}%
+\contentsline {section}{\numberline {3}MAPEAMENTO MATEMÁTICO E DINÂMICA EM MALHA ABERTA}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Equação Diferencial de Segunda Ordem da Planta}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Função de Transferência em Malha Aberta e Resposta ao Degrau}{9}{subsection.3.2}%
+\contentsline {section}{\numberline {4}CONTROLE PROPORCIONAL, ROUTH-HURWITZ E LUGAR GEOMÉTRICO DAS RAÍZES}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Função de Transferência em Malha Fechada e Equação Característica}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Critério de Routh-Hurwitz e Estabilidade Assintótica}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Condição para Resposta Não Oscilatória e Assintoticamente Estável}{11}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Influência de $K$ sobre Polos, Frequência Natural, Amortecimento e Velocidade}{12}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Limitações do Controlador Proporcional na Regulação e Rejeição a Perturbações}{12}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Lugar Geométrico das Raízes (LGR) da Planta com Controle P}{13}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Impossibilidade de Atendimento Simultâneo dos Requisitos via Ajuste de $K$}{14}{subsection.4.7}%
+\contentsline {section}{\numberline {5}PROJETO DOS CONTROLADORES P, PI, PD E PID E ANÁLISE FREQUENCIAL}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Síntese dos Requisitos de Desempenho}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Funções de Transferência dos Controladores e Malhas Fechadas}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Sintonia Analítica e Justificativa Matemática dos Ganhos}{15}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Controlador P ($K_p = 0{,}369$)}{15}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Controlador PI (caso estável e caso instável)}{15}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Controlador PD ($K_p = 1{,}280,\tmspace +\thickmuskip {.2777em} K_d = 1{,}560$)}{16}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Controlador PID nominal e sintonia ajustada ($\alpha = 0{,}40\text { s}^{-1}$)}{16}{subsubsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.4}LGR dos Sistemas Compensados e Análise Frequencial via Bode}{16}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Demonstração Matemática e Evidências Computacionais das Limitações}{18}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Limitação Estrutural do Controlador PI (Invariância de Vieta e Instabilidade)}{18}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Limitação do Controlador PD (Rejeição à Perturbação vs. Saturação)}{19}{subsubsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.3}Limitações Não Lineares no Controlador PID}{19}{subsubsection.5.5.3}%
+\contentsline {section}{\numberline {6}SIMULAÇÃO TEMPORAL, SATURAÇÃO E COMPARATIVO DE DESEMPENHO}{20}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Resposta ao Degrau ($x_r = 300$), Evolução de $q(t)$ e Rejeição à Perturbação}{20}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Avaliação da Capacidade Solicitada $\mu _c(t)$ e Efetiva $\mu (t)$ sob Saturação}{21}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Síntese Comparativa de Desempenho}{22}{subsection.6.3}%
+\contentsline {section}{\numberline {7}ANÁLISE DE COMPROMISSO (\textit {TRADE-OFFS}) E CONCLUSÕES}{23}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Síntese Comparativa e Escolha do Controlador}{23}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Compromisso entre Estabilidade, Rapidez, Precisão e Consumo de Recursos}{23}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Considerações Finais}{24}{subsection.7.3}%
+\contentsline {section}{REFERÊNCIAS}{25}{section*.14}%
+\contentsline {section}{APÊNDICE A – CÓDIGO-FONTE DE SIMULAÇÃO EM PYTHON}{26}{section*.15}%

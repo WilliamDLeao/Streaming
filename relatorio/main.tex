@@ -1,0 +1,33 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{preambulo/pacotes_e_estilo}
+
+\begin{document}
+
+% ==============================================================================
+% ELEMENTOS PRE-TEXTUAIS (ABNT NBR 14724 / NBR 10719)
+% ==============================================================================
+\input{preambulo/pre_textuais}
+
+% ==============================================================================
+% PARTE TEXTUAL — PAGINACAO ARABICA NO CANTO SUPERIOR DIREITO
+% ==============================================================================
+\clearpage
+\pagestyle{abnttexto}
+\thispagestyle{abnttexto}
+
+\input{secoes/01_introducao}
+\input{secoes/02_modelagem_fisica}
+\input{secoes/03_malha_aberta}
+\input{secoes/04_controle_proporcional}
+\input{secoes/05_projeto_compensadores}
+\input{secoes/06_simulacao_comparativa}
+\input{secoes/07_conclusoes}
+
+% ==============================================================================
+% ELEMENTOS POS-TEXTUAIS (ABNT NBR 14724 / NBR 6023)
+% ==============================================================================
+\input{pos_textuais/referencias}
+\input{pos_textuais/apendice_codigo}
+
+\end{document}
